@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HomeworkFive</string>
+    <string name="text_view_city">Текуший город</string>
+    <string name="edit_text_city_name">Введите название города</string>
+    <string name="button_ok">OK</string>
+    <string name="temperature_now">Текущая температура:</string>
+    <string name="temperature_real">Ощущаетсяя как:</string>
+</resources>
