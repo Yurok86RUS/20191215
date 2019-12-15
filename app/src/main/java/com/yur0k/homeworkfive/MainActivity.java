@@ -6,9 +6,10 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.zip.Inflater;
+import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -33,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
         textViewCityName.setText("Moscow");
 
         textViewTemperatureNow= findViewById(R.id.temperatureNow);
-        final WeatherModel weatherModel = new WeatherModel();
+
+        ImageView imageViewCity = findViewById(R.id.imageViewCity);
+
+        Picasso.with(this).
+                load("https://static.mk.ru/upload/entities/2019/10/06/09/articles/detailPicture/ba/fb/40/fa/98920cfb019dcd386a568be49f14c8b0.jpg").
+                into(imageViewCity);
 
         buttonOk = findViewById(R.id.buttonOk);
         buttonOk.setOnClickListener(new View.OnClickListener() {
