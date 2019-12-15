@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.zip.Inflater;
+
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -21,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewCityName;
     private Button buttonOk;
     private TextView textViewTemperatureNow;
-//    private TextView textViewTemperatureReal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +41,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     //getWeather(textViewCityName.getText().toString());
-                    getWeather("294021");
-                    textViewTemperatureNow.setText(weatherModel.getTemperature().toString());
+                    WeatherModel model = getWeather("294021");
+                    //textViewTemperatureNow.setText(weatherModel.getTemperature().toString());
+                    //textViewTemperatureNow.setText(Double.toString(weatherModel.getTemperature().getValue()));
+                   textViewTemperatureNow.setText(Double.toString(model.getTemperature().getValue()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -57,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
     private WeatherModel getWeather(String cityName) throws Exception {
 
-//        textViewTemperatureReal = findViewById(R.id.temperatureReal);
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://dataservice.accuweather.com").
                 addConverterFactory(GsonConverterFactory.create()).build();
