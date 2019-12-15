@@ -60,26 +60,25 @@
         android:id="@+id/temperatureNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="123"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/temperature_real"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp" />
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/temperature_real"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginRight="16dp"-->
+<!--        android:layout_marginLeft="16dp" />-->
 
-    <TextView
-        android:id="@+id/temperatureReal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="123"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp" />
+<!--    <TextView-->
+<!--        android:id="@+id/temperatureReal"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="123"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginRight="16dp"-->
+<!--        android:layout_marginLeft="16dp" />-->
 
 </LinearLayout>
