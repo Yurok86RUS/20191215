@@ -16,7 +16,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     interface AccuWeather{
-        @GET
-        Call<WeatherModel> getWeather(@Path("currentconditions/v1") @Query("/") String q, @Query("apikey") String key);
+        @GET ("currentconditions/v1")
+        Call<WeatherModel> getWeather(@Query("/") String q, @Query("apikey") String key);
     }
 
     private WeatherModel getWeather(String cityName) throws Exception {
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://dataservice.accuweather.com").
                 addConverterFactory(GsonConverterFactory.create()).build();
         Call<WeatherModel> call = retrofit.create(AccuWeather.class).
-                getWeather(cityName, "dNCJ5Bk0LjZE75BNfUFBgAdOFj6I7bjI" + "language=en&details=false");
+                getWeather(cityName, "dNCJ5Bk0LjZE75BNfUFBgAdOFj6I7bjI&language=en&details=false");
 
             Response<WeatherModel> response = call.execute();
 
