@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     interface AccuWeather{
-        @GET
-        Call<WeatherModel> getWeather(@Path("currentconditions/v1") @Query("/") String q, @Query("apikey") String key);
+        @GET("currentconditions/v1")
+        Call<WeatherModel> getWeather(@Query("/") String q, @Query("apikey") String key);
     }
 
     private WeatherModel getWeather(String cityName) throws Exception {
