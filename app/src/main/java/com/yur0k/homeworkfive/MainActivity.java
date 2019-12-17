@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,7 +17,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView imageViewCity = findViewById(R.id.imageViewCity);
 
+        Log.i("CLICK", textViewCityName.getText().toString());
+
         Picasso.with(this).
                 load("https://static.mk.ru/upload/entities/2019/10/06/09/articles/detailPicture/ba/fb/40/fa/98920cfb019dcd386a568be49f14c8b0.jpg").
                 into(imageViewCity);
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    Log.i("CLICK2", textViewCityName.getText().toString());
                     //getWeather(textViewCityName.getText().toString());
                     WeatherModel model = getWeather("294021");
                     //textViewTemperatureNow.setText(weatherModel.getTemperature().toString());
@@ -67,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
     private WeatherModel getWeather(String cityName) throws Exception {
 
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://dataservice.accuweather.com").
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://dataservice.accuweather.com/").
                 addConverterFactory(GsonConverterFactory.create()).build();
-        Call<WeatherModel> call = retrofit.create(AccuWeather.class).
+                Call<WeatherModel> call = retrofit.create(AccuWeather.class).
                 getWeather(cityName, "dNCJ5Bk0LjZE75BNfUFBgAdOFj6I7bjI&language=en&details=false");
 
-            Response<WeatherModel> response = call.execute();
+           Response<WeatherModel> response = call.execute();
 
             if (response.isSuccessful())
                 return response.body();
